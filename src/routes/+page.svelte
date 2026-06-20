@@ -50,7 +50,7 @@
 
 	let zoomWrapperRef: HTMLElement;
 	let whyRef: HTMLElement;
-	let cardsRectRef: HTMLElement;
+	let cardsRectRef: HTMLElement | undefined;
 	let whiteRectRef: HTMLElement;
 	let featuresRectRef: HTMLElement;
 	let inuseRectRef: HTMLElement;
@@ -96,7 +96,7 @@
 	function setRectRefs() {
 		setZoomWrapperRectRef(zoomWrapperRef);
 		setWhyRectRef(whyRef);
-		setCardsRectRef(cardsRectRef);
+		if (cardsRectRef) setCardsRectRef(cardsRectRef);
 		setWhiteRectRef(whiteRectRef);
 		setFeaturesRectRef(featuresRectRef);
 		setInuseRectRef(inuseRectRef);
@@ -327,7 +327,6 @@
 <style lang="scss">
 	@import '../lib/styles/_functions';
 
-	main > *:not(.canvas) { position: relative; }
 
 	.canvas {
 		position: fixed;
