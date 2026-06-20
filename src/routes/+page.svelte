@@ -130,7 +130,6 @@
 <section class="hero">
 	<div class="layout-grid-inner">
 		<Title class="title" />
-		<svelte:component this={SFDR} class={cn('icon-hero', $introOutStore && 'show')} />
 		<span class="sub">
 			<HeroTextIn>
 				<h2 class="h3 subtitle">Empowering Communities</h2>
@@ -175,7 +174,6 @@
 		</h2>
 		<aside class="features" bind:this={whyRef}>
 			<div class="feature">
-				<img class="feature-img" src="{BASE}/img1.webp" alt="Community empowerment" />
 				<p class="p">
 					We envision a community that is empowered, self-sustaining, and resilient—thriving through
 					its own resources and ingenuity. By nurturing independence and long-term growth, we aim to
@@ -184,7 +182,6 @@
 				</p>
 			</div>
 			<div class="feature">
-				<img class="feature-img" src="{BASE}/img2.webp" alt="Our Mission" />
 				<h3 class="title h4">Our Mission</h3>
 				<p class="p">
 					To cultivate a self-reliant, forward-thinking community by equipping individuals with the
@@ -193,7 +190,6 @@
 				</p>
 			</div>
 			<div class="feature">
-				<img class="feature-img" src="{BASE}/img3.webp" alt="Our Values" />
 				<h3 class="title h4">Our Values</h3>
 				<p class="p">
 					Integrity, Transparency, Accountability, Sustainability, Inclusivity, Compassion, Empathy,
@@ -201,7 +197,6 @@
 				</p>
 			</div>
 			<div class="feature">
-				<img class="feature-img" src="{BASE}/ritu.webp" alt="Rooted in Community" />
 				<h3 class="title h4">Rooted in Community</h3>
 				<p class="p">
 					We work alongside families, local leaders, and educators to build programs that reflect the
@@ -238,18 +233,6 @@
 		</div>
 	</div>
 
-	<div class="cards" bind:this={cardsRectRef}>
-		<svelte:component
-			this={HorizontalSlides}
-			on:mounted={() => setHomePageLoadedComponentsStore('HorizontalSlides')}
-		>
-			<Card class="card" number={1} image="{BASE}/creative_learn1.webp" text="Lack of access to quality education in underserved areas" />
-			<Card class="card" number={2} image="{BASE}/creative_learn2.webp" text="Limited creative and safe spaces for children to express themselves" />
-			<Card class="card" number={3} image="{BASE}/creative_learn3.webp" text="High dropout rates due to outdated, rote-based learning" />
-			<Card class="card" number={4} image="{BASE}/kathak1.webp" text="Families with no exposure to skill-building or livelihood programs" />
-			<Card class="card" number={5} image="{BASE}/theater1.webp" text="Communities overlooked by mainstream development initiatives" />
-		</svelte:component>
-	</div>
 </section>
 
 <!-- SOLUTION -->
@@ -537,20 +520,6 @@
 				@include desktop { margin-bottom: desktop-vw(24px); }
 			}
 		}
-
-		.feature-img {
-			width: 100%;
-			height: mobile-vw(200px);
-			object-fit: cover;
-			border-radius: mobile-vw(12px);
-			margin-bottom: mobile-vw(20px);
-			display: block;
-			@include desktop {
-				height: desktop-vw(280px);
-				border-radius: desktop-vw(12px);
-				margin-bottom: desktop-vw(24px);
-			}
-		}
 	}
 
 	/* ── APPROACH ── */
@@ -573,19 +542,6 @@
 			.comparison {
 				grid-column: 1 / -1;
 				@include desktop { grid-column: 7 / span 4; margin-top: desktop-vw(256px); }
-			}
-		}
-
-		.cards {
-			margin-bottom: mobile-vw(160px);
-			@include desktop { margin-bottom: desktop-vw(400px); }
-
-			:global(.card) {
-				@include desktop {
-					&:first-child { margin-left: calc(columns(6) + var(--layout-margin) + var(--layout-columns-gap)); }
-					&:not(:last-child) { margin-right: calc(var(--layout-columns-gap) * 2 + var(--layout-column-width)); }
-					&:last-child { margin-right: calc(columns(2) + var(--layout-margin) + var(--layout-columns-gap)); }
-				}
 			}
 		}
 	}
