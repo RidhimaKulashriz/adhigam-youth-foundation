@@ -64,7 +64,7 @@
 		AppearTitle = await dynamicImport('AppearTitle', import('../lib/components/AppearTitle.svelte'));
 		HorizontalSlides = await dynamicImport('HorizontalSlides', import('../lib/components/HorizontalSlides.svelte'));
 		Parallax = await dynamicImport('Parallax', import('../lib/components/Parallax.svelte'));
-		FeatureCards = await dynamicImport('Parallax', import('../lib/components/FeatureCards/FeatureCards.svelte'));
+		FeatureCards = await dynamicImport('FeatureCards', import('../lib/components/FeatureCards/FeatureCards.svelte'));
 	});
 
 	useScroll(({ scroll }) => {
