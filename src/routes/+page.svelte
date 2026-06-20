@@ -123,6 +123,7 @@
 <section class="hero">
 	<div class="layout-grid-inner">
 		<Title class="title" />
+		<svelte:component this={SFDR} class={cn('icon-hero', $introOutStore && 'show')} />
 		<span class="sub">
 			<HeroTextIn>
 				<h2 class="h3 subtitle">Empowering Communities</h2>
