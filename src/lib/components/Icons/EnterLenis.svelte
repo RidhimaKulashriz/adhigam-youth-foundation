@@ -4,7 +4,7 @@
 	export { className as class };
 </script>
 
-<svg class={className} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 800 300">
+<svg class={className} fill="none" viewBox="0 0 800 300">
 	<title>Empowering Communities</title>
 	
 	<!-- ✅ "WHAT'S" - Small white text -->
