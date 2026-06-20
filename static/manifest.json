@@ -1,7 +1,7 @@
 {
-  "name": "Lenis",
-  "short_name": "Lenis Smooth Scroll",
-  "description": "How smooth scroll should be.",
+  "name": "Adhigam Youth Foundation",
+  "short_name": "Adhigam",
+  "description": "Empowering communities through education, awareness, and skill development.",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -16,8 +16,8 @@
       "purpose": "any"
     }
   ],
-  "theme_color": "#ff98a2",
-  "background_color": "#efefef",
+  "theme_color": "#ed8936",
+  "background_color": "#1a365d",
   "start_url": "/",
   "scope": ".",
   "display": "standalone",
