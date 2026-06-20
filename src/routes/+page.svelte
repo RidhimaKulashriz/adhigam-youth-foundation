@@ -43,14 +43,12 @@
 	const [size] = useWindowSize();
 	const [setZoomWrapperRectRef, zoomWrapperRect] = useRect();
 	const [setWhyRectRef, whyRect] = useRect();
-	const [setCardsRectRef, cardsRect] = useRect();
 	const [setWhiteRectRef, whiteRect] = useRect();
 	const [setFeaturesRectRef, featuresRect] = useRect();
 	const [setInuseRectRef, inuseRect] = useRect();
 
 	let zoomWrapperRef: HTMLElement;
 	let whyRef: HTMLElement;
-	let cardsRectRef: HTMLElement | undefined;
 	let whiteRectRef: HTMLElement;
 	let featuresRectRef: HTMLElement;
 	let inuseRectRef: HTMLElement;
@@ -96,7 +94,6 @@
 	function setRectRefs() {
 		setZoomWrapperRectRef(zoomWrapperRef);
 		setWhyRectRef(whyRef);
-		if (cardsRectRef) setCardsRectRef(cardsRectRef);
 		setWhiteRectRef(whiteRectRef);
 		setFeaturesRectRef(featuresRectRef);
 		setInuseRectRef(inuseRectRef);
@@ -107,10 +104,6 @@
 		const top1 = $whyRect.top - $size.height / 2;
 		addThreshold({ id: 'why-start', value: top1 });
 		addThreshold({ id: 'why-end', value: top1 + $whyRect.height });
-		const top2 = $cardsRect.top - $size.height / 2;
-		addThreshold({ id: 'cards-start', value: top2 });
-		addThreshold({ id: 'cards-end', value: top2 + $cardsRect.height });
-		addThreshold({ id: 'red-end', value: top2 + $cardsRect.height + $size.height });
 		const top3 = $whiteRect.top - $size.height;
 		addThreshold({ id: 'light-start', value: top3 });
 		const top4 = $featuresRect.top;
@@ -326,7 +319,6 @@
 
 <style lang="scss">
 	@import '../lib/styles/_functions';
-
 
 	.canvas {
 		position: fixed;
