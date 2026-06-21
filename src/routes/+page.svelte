@@ -46,12 +46,14 @@
 	const [setWhiteRectRef, whiteRect] = useRect();
 	const [setFeaturesRectRef, featuresRect] = useRect();
 	const [setInuseRectRef, inuseRect] = useRect();
+	const [setCardsRectRef, cardsRect] = useRect();
 
 	let zoomWrapperRef: HTMLElement;
 	let whyRef: HTMLElement;
 	let whiteRectRef: HTMLElement;
 	let featuresRectRef: HTMLElement;
 	let inuseRectRef: HTMLElement;
+	let cardsRectRef: HTMLElement;
 
 	$: if (Object.keys($homePageLoadedComponentsStore).length === 4) {
 		setRectRefs();
@@ -97,6 +99,7 @@
 		setWhiteRectRef(whiteRectRef);
 		setFeaturesRectRef(featuresRectRef);
 		setInuseRectRef(inuseRectRef);
+		setCardsRectRef(cardsRectRef);
 	}
 
 	function updateThresholds() {
@@ -108,10 +111,12 @@
 		addThreshold({ id: 'light-start', value: top3 });
 		const top4 = $featuresRect.top;
 		addThreshold({ id: 'features', value: top4 });
-		const top5 = inuseRectRef.getBoundingClientRect().top;
-		addThreshold({ id: 'in-use', value: top5 });
-		const top6 = $lenis?.limit;
-		addThreshold({ id: 'end', value: top6! });
+		const top5 = cardsRectRef.getBoundingClientRect().top;
+		addThreshold({ id: 'cards', value: top5 });
+		const top6 = inuseRectRef.getBoundingClientRect().top;
+		addThreshold({ id: 'in-use', value: top6 });
+		const top7 = $lenis?.limit;
+		addThreshold({ id: 'end', value: top7! });
 	}
 </script>
 
@@ -241,6 +246,24 @@
 				Enter <br /> Adhigam
 			</h2>
 			<h2 class="second h1 vh">From potential to power</h2>
+		</div>
+	</div>
+</section>
+
+<!-- TRADITIONAL GALLERY -->
+<section class="theme-light traditional-gallery">
+	<div class="layout-grid">
+		<div class="cards" bind:this={cardsRectRef}>
+			<svelte:component
+				this={HorizontalSlides}
+				on:mounted={() => setHomePageLoadedComponentsStore('HorizontalSlides')}
+			>
+				<Card class="card" number={1} image="{BASE}/creative_learn1.webp" text="Lack of access to quality education in underserved areas" />
+				<Card class="card" number={2} image="{BASE}/creative_learn2.webp" text="Limited creative and safe spaces for children to express themselves" />
+				<Card class="card" number={3} image="{BASE}/creative_learn3.webp" text="High dropout rates due to outdated, rote-based learning" />
+				<Card class="card" number={4} image="{BASE}/kathak1.webp" text="Families with no exposure to skill-building or livelihood programs" />
+				<Card class="card" number={5} image="{BASE}/theater1.webp" text="Communities overlooked by mainstream development initiatives" />
+			</svelte:component>
 		</div>
 	</div>
 </section>
@@ -588,6 +611,25 @@
 			@include desktop {
 				transform: translate(-50%, -50%) scale(calc((var(--progress1) * 8.5)));
 				transform-origin: 50% calc(50% - (var(--progress1) * 25%));
+			}
+		}
+	}
+
+	/* ── TRADITIONAL GALLERY ── */
+	.traditional-gallery {
+		padding-bottom: mobile-vw(160px);
+		@include desktop { padding-bottom: desktop-vw(320px); }
+
+		.cards {
+			margin-bottom: mobile-vw(160px);
+			@include desktop { margin-bottom: desktop-vw(400px); }
+
+			:global(.card) {
+				@include desktop {
+					&:first-child { margin-left: calc(columns(6) + var(--layout-margin) + var(--layout-columns-gap)); }
+					&:not(:last-child) { margin-right: calc(var(--layout-columns-gap) * 2 + var(--layout-column-width)); }
+					&:last-child { margin-right: calc(columns(2) + var(--layout-margin) + var(--layout-columns-gap)); }
+				}
 			}
 		}
 	}
